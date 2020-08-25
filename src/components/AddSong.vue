@@ -9,16 +9,15 @@
         <b-overlay :show="adding" rounded="sm">
             <b-card>
                 <template v-slot:header>
-                    <h5 class="mb-0">Add Song</h5>
+                    <h5 class="mb-0">Recommend a song</h5>
                 </template>
-                
-                    <b-card-text>
-                        <b-form @submit="addSong">
-                            <b-form-input v-model="artist" placeholder="Artist (eg.: Rick Astley)" class="mb-2"></b-form-input>
-                            <b-form-input v-model="title" placeholder="Title (eg.: Never Gonna Give you Up)"></b-form-input>
-                            <b-button type="submit" class="mt-4" variant="primary"><b-icon-plus></b-icon-plus>Add song</b-button>
-                        </b-form>
-                    </b-card-text>
+                <b-card-text>
+                    <b-form @submit="addSong">
+                        <b-form-input v-model="artist" placeholder="Artist (eg.: Rick Astley)" class="mb-2"></b-form-input>
+                        <b-form-input v-model="title" placeholder="Title (eg.: Never Gonna Give you Up)"></b-form-input>
+                        <b-button type="submit" class="mt-4" variant="primary"><b-icon-plus></b-icon-plus>Add song</b-button>
+                    </b-form>
+                </b-card-text>
             </b-card>
         </b-overlay>
     </div>

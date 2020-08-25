@@ -22,7 +22,10 @@
                     </template>
                     <router-link v-if="!loggedIn" class="dropdown-item" to="/login">Login</router-link>
                     <router-link v-if="!loggedIn" class="dropdown-item" to="/signup">Signup</router-link>
-					<a v-else class="dropdown-item" @click="logout">Logout</a>
+                    <div v-else>
+                        <a class="dropdown-item">Profile</a>
+                        <a class="dropdown-item" @click="logout">Logout</a>
+                    </div>
                 </b-nav-item-dropdown>
             </b-navbar-nav>
         </b-collapse>
