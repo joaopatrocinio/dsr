@@ -19,7 +19,8 @@ const store = new Vuex.Store({
 		auth: {
 			loggedIn: false,
 			email: ""
-		}
+		},
+		songQueue: []
 	},
 	mutations: {
 		setLoggedIn (state, value) {
@@ -27,6 +28,22 @@ const store = new Vuex.Store({
 		},
 		setEmail (state, email) {
 			state.auth.email = email;
+		},
+		updateSongQueue (state, array) {
+			state.songQueue = array;
+		},
+		removeFromQueue (state, _id) {
+			// to remove a song after it's been rated
+			// next time the queue is fetched it won't come up again
+			const index = state.songQueue.map(x => {
+				if (x._id == _id) return state.songQueue.indexOf(x);
+			});
+			state.songQueue.splice(index, 1);
+		}
+	},
+	actions: {
+		clearSongQueue() {
+			this.commit("updateSongQueue", []);
 		}
 	}
 })

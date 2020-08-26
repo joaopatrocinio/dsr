@@ -26,6 +26,7 @@ export default {
                     score: rating
                 }).then(result => {
                     console.log(result.data)
+                    this.$store.commit("removeFromQueue", this._id)
                 }).catch((err) => {
                     console.error(err)
                 })

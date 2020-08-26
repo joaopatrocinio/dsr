@@ -66,6 +66,7 @@ export default {
                 if (response.status == 200) {
                     this.$store.state.auth.loggedIn = false;
                     this.$store.state.auth.email = "";
+                    this.$store.dispatch("clearSongQueue");
                     this.$router.push("/");
                 } else {
                     alert("Error")
