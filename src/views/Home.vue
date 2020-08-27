@@ -23,7 +23,7 @@ export default {
 	},
 	methods: {
 		updateSongs() {
-			axios.get("http://localhost:8088/songs/queue")
+			axios.get(process.env.VUE_APP_API_URL + "/songs/queue")
 			.then((res) => {
 				this.$store.commit("updateSongQueue", res.data)
 			})

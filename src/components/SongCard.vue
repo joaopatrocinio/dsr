@@ -21,7 +21,7 @@ export default {
     methods: {
         rateSong(rating) {
             if (rating >= 1 && rating <= 3) {
-                axios.post("http://localhost:8088/songs/rate", {
+                axios.post(process.env.VUE_APP_API_URL + "/songs/rate", {
                     song_id: this._id,
                     score: rating
                 }).then(result => {

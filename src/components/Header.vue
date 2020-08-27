@@ -50,7 +50,7 @@ export default {
         }
     },
     mounted() {
-        axios.get("http://localhost:8088/authentication/verify", {
+        axios.get(process.env.VUE_APP_API_URL + "/authentication/verify", {
             withCredentials: true
         }).then((res) => {
             if (res.data.user) {
@@ -61,7 +61,7 @@ export default {
     },
 	methods: {
 		logout() {
-            axios.get('http://localhost:8088/authentication/logout', { withCredentials: true })
+            axios.get(process.env.VUE_APP_API_URL + '/authentication/logout', { withCredentials: true })
             .then(response => {
                 if (response.status == 200) {
                     this.$store.state.auth.loggedIn = false;

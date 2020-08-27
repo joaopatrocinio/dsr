@@ -33,7 +33,7 @@ export default {
         signup(event) {
             if (this.email != "" && this.password != "" && this.password == this.confirm_password) {
                 event.preventDefault();
-                axios.post('http://localhost:8088/authentication/signup', {
+                axios.post(process.env.VUE_APP_API_URL + '/authentication/signup', {
                     email: this.email,
                     password: this.password
                 }, { withCredentials: true })

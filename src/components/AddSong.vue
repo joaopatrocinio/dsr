@@ -40,7 +40,7 @@ export default {
             e.preventDefault();
             if (this.artist && this.title) {
                 this.adding = true;
-                axios.post("http://localhost:8088/songs/add", {
+                axios.post(process.env.VUE_APP_API_URL + "/songs/add", {
                     artist: this.artist,
                     title: this.title
                 }).then(() => {

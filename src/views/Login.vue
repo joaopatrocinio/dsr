@@ -31,7 +31,7 @@ export default {
     methods: {
         login: function (event) {
             event.preventDefault();
-            axios.post('http://localhost:8088/authentication/login', {
+            axios.post(process.env.VUE_APP_API_URL + '/authentication/login', {
                 email: this.form.email,
                 password: this.form.password
             }, { withCredentials: true })

@@ -4,8 +4,8 @@
             <template v-slot:header>
                 <h5 class="mb-0">{{ listName }}</h5>
             </template>
-            <b-card-text class="songListDiv">
-                <div v-if="songs.length > 0">
+            <b-card-text>
+                <div v-if="songs.length > 0" class="songListDiv">
                     <SongCard v-for="song in songs" :key="song._id" v-bind:title="song.title" v-bind:artist="song.artist" v-bind:_id="song._id" v-bind:image="song.image"></SongCard>
                 </div>
                 <div v-else>
