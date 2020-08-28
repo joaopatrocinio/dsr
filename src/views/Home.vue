@@ -15,6 +15,7 @@
 import axios from 'axios'
 import AddSong from '@/components/AddSong.vue'
 import SongList from '@/components/SongList.vue'
+axios.defaults.withCredentials = true
 export default {
 	name: 'Home',
 	components: {

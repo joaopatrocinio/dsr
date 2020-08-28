@@ -17,7 +17,7 @@
 
 <script>
 import axios from 'axios'
-
+axios.defaults.withCredentials = true
 export default {
     name: 'Login',
     data() {
@@ -34,7 +34,7 @@ export default {
             axios.post(process.env.VUE_APP_API_URL + '/authentication/login', {
                 email: this.form.email,
                 password: this.form.password
-            }, { withCredentials: true })
+            })
             .then(response => {
                 if (response.status == 200) {
                     this.$store.commit("setLoggedIn", true)

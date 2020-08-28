@@ -34,6 +34,7 @@
 
 <script>
 import axios from 'axios'
+axios.defaults.withCredentials = true
 export default {
     name: 'Header',
     data() {
@@ -50,9 +51,8 @@ export default {
         }
     },
     mounted() {
-        axios.get(process.env.VUE_APP_API_URL + "/authentication/verify", {
-            withCredentials: true
-        }).then((res) => {
+        axios.get(process.env.VUE_APP_API_URL + "/authentication/verify")
+        .then((res) => {
             if (res.data.user) {
                 this.$store.state.auth.loggedIn = true;
                 this.$store.state.auth.email = res.data.user.email;
@@ -61,7 +61,7 @@ export default {
     },
 	methods: {
 		logout() {
-            axios.get(process.env.VUE_APP_API_URL + '/authentication/logout', { withCredentials: true })
+            axios.get(process.env.VUE_APP_API_URL + '/authentication/logout')
             .then(response => {
                 if (response.status == 200) {
                     this.$store.state.auth.loggedIn = false;

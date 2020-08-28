@@ -20,6 +20,7 @@
 
 <script>
 import axios from 'axios';
+axios.defaults.withCredentials = true
 export default {
     name: "Signup",
     data() {
@@ -36,7 +37,7 @@ export default {
                 axios.post(process.env.VUE_APP_API_URL + '/authentication/signup', {
                     email: this.email,
                     password: this.password
-                }, { withCredentials: true })
+                })
                 .then(response => {
                     if (response.status == 200) {
                         this.$router.push("/login")
